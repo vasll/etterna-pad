@@ -4,8 +4,11 @@ Fork of [Etterna](https://github.com/etternagame/etterna) with a few changes to 
 
 # Features/Tweaks TODOs
 **Overlay `ScreenSelectMusic.lua`**
-- [ ] Show patterns from .sm files like in ITGMania (i.e. XO, FS, etc...)
 - [ ] Instead of showing "Jumpstream, Handstream, Chordjack" and other keyboard-style patterns, remove that MSD ratings panel and show ITG/DDR patterns like Crossovers, Sideswitches, Brackets, Footswitches, etc... like in ITGMania
+- [x] Show patterns from .sm files like in ITGMania (i.e. XO, FS, etc...)
+
 **Other**
+- [ ] Implement ITG timings
+- [ ] Implement ITG score calculation
+  - I think this is kinda hard because of the way MSD rating is implemented in Etterna
 - [x] Working background videos _(Only on Windows currently)_
-  - Thanks to [#1046](https://github.com/etternagame/etterna/pull/1046) FFMpeg version is updated

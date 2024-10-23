@@ -293,6 +293,34 @@ t[#t+1] = Def.ActorFrame {
         end
     },
     LoadFont("Common Normal") .. {
+        Name = "StepsDescription",
+        InitCommand = function(self)
+            self:halign(0):valign(1)
+            self:xy(actuals.LeftTextLeftGap, actuals.Height - actuals.TextLowerGap3 + (actuals.TextLowerGap2 ) / 2)
+            self:zoom(textsize)
+            self:maxwidth((actuals.DiffFrameLeftGap - actuals.LeftTextLeftGap) / textsize - textzoomFudge)
+            self:maxheight(actuals.ApproximateTextVerticalHeight / textsize)
+            self:settext("")
+            registerActorToColorConfigElement(self, "main", "PrimaryText")
+        end,
+        SetCommand = function(self, params)
+            if params.steps then
+                -- Fetch stepsDescription and display it if not empty
+                local stepsDescription = params.steps:GetDescription()
+                if stepsDescription ~= "" then
+                    self:settext(stepsDescription)
+                else
+                    self:settext("")
+                end
+            else
+                self:settext("")
+            end
+        end,
+        DisplayLanguageChangedMessageCommand = function(self)
+            self:playcommand("Set", {song = GAMESTATE:GetCurrentSong(), steps = GAMESTATE:GetCurrentSteps()})
+        end
+    },
+    LoadFont("Common Normal") .. {
         Name = "SubTitle",
         InitCommand = function(self)
             self:halign(0):valign(1)
